@@ -1,25 +1,25 @@
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+body, h1, h2, h3, h4, h5, h6 {
   font-family: "Lato", sans-serif;
 }
 
-body,
-html {
+body, html {
   height: 100%;
   color: #777;
   line-height: 1.8;
 }
 
+#about {
+  text-align: left;
+  padding-left: 100px;
+  text-style: justify;
+  text-justify: inter-word;
+  padding-right: 100px;
+  font-family: helvetica;
+}
+
 /* Create a Parallax Effect */
 
-.bgimg-1,
-.bgimg-2,
-.bgimg-3 {
+.bgimg-1, .bgimg-2, .bgimg-3 {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -58,9 +58,7 @@ html {
 /* Turn off parallax scrolling for tablets and phones */
 
 @media only screen and (max-device-width: 1024px) {
-  .bgimg-1,
-  .bgimg-2,
-  .bgimg-3 {
+  .bgimg-1, .bgimg-2, .bgimg-3 {
     background-attachment: scroll;
   }
 }
@@ -72,5 +70,4 @@ ul {
   float: center;
   line-height: 30px;
   padding-left: 150px;
-
 }
