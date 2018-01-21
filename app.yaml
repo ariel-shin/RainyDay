@@ -1,4 +1,4 @@
-runtime: python27
+runtime: python
 api_version: 1
 threadsafe: true
 
@@ -11,3 +11,11 @@ handlers:
 
 - url: /images
   static_dir: images
+
+- url: /upload
+  script: main.app
+
+env: flex
+
+skip_files:
+- env/
