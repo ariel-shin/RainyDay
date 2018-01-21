@@ -9,11 +9,7 @@
    npm install apac  <- nodejs wrapper of Amazon Product Advertising API 
 */
 
-const jsdom = require("jsdom");
-
-const { JSDOM } = jsdom;
-
-const {OperationHelper} = require('apac');
+const jsdom = require("jsdom"), {OperationHelper} = require('apac'), { JSDOM } = jsdom;
 
 const opHelper = new OperationHelper({
     awsId:     'AKIAISF2B2SBCCCDF7LA',
@@ -21,15 +17,7 @@ const opHelper = new OperationHelper({
     assocId:   'rainyday0d-20' 
 });
 
-var itemsValue = 0 
-
-var bnode = 0
-
-var keyword = 'cup'
-
-var logo = null
-
-var sIndex = null 
+var itemsValue = 0, bnode = 0, logo = null, sIndex = null, keyword = 'cup'
 
 var departments = {
 	Appliances:2619526011,
@@ -67,7 +55,6 @@ else if (keyword === 'hammer' ||
 		 bnode = department.Tools
 		 sIndex = 'Tools'
 }
-//else if (keyword ===)
 
 opHelper.execute('ItemSearch', {
   'SearchIndex': sIndex, // <--- MUST specify SearchIndex for results +  will generalize based on keywords 
@@ -85,25 +72,6 @@ opHelper.execute('ItemSearch', {
 	console.log('Example of first cup element:', dom.window.document.querySelector("FormattedPrice").textContent);
 	itemsValue += dom.window.document.querySelector("FormattedPrice").textContent
 	console.log("The total value of your items is:", itemsValue.substr(1))
-	}
-
-).catch((err) => {
-    console.error("Something went wrong! ", err);
-	});
-
-
-opHelper.execute('ItemLookup', {
-  'ItemId': 'B000LNB8HK', // <--- MUST specify ItemId for results 
-  'ResponseGroup': 'ItemAttributes'
-}).then((response) => {
-
-    //console.log("Raw response body: ", response.responseBody) <--- Use to view total structure 
-
-	var xml = response.responseBody;
-
-	const dom = new JSDOM(xml);
-	
-	//console.log('Example of Andis 17150 Profoil Lithium: ', dom.window.document.querySelector("FormattedPrice").textContent);
 	}
 
 ).catch((err) => {
