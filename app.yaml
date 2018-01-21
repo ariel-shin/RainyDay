@@ -4,5 +4,11 @@ api_version: 1
 threadsafe: true
 
 handlers:
-- url: /.*
-  script: main.py
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /
+  script: main.app
+
+- url: /images
+  static_dir: images
