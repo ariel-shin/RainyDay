@@ -69,5 +69,10 @@ ul {
   text-align: center;
   float: center;
   line-height: 30px;
-  padding-left: 150px;
+  /*padding-left: 150px;*/
+  list-style: none;
+}
+
+h3 {
+  text-align: center;
 }
