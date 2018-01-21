@@ -10,7 +10,7 @@ def crop(image_path, coords, saved_location):
     image_obj = Image.open(image_path)
     cropped_image = image_obj.crop(coords)
     cropped_image.save(saved_location)
-    return(saved_location)
+    return saved_location
     #cropped_image.show()
 
 def batch_crop(image, coordinates): 
@@ -34,16 +34,18 @@ def batch_crop(image, coordinates):
             except:pass
         for item in result:
             import uuid
-            unique_filename = str(uuid.uuid4()) + '.jpg'
+            unique_filename = 'cropped_output/' + str(uuid.uuid4()) + '.jpg'
             final.append(crop(image, item, unique_filename))
-    write(final)
+    return final
 
 #takes in image names
 #ISSUE: only looks at 'file.txt' for coordinates
 # but can take n number of image names
 if __name__ == '__main__':
     import sys
-    batch_crop(sys.argv[1], sys.argv[2])
+    final = batch_crop(sys.argv[1], sys.argv[2])
+    print final
+    
 
     
 
