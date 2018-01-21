@@ -64,3 +64,13 @@ html {
     background-attachment: scroll;
   }
 }
+
+/* for Sven's portion of HTML that returns in the #results portion*/
+
+ul {
+  text-align: center;
+  float: center;
+  line-height: 30px;
+  padding-left: 150px;
+
+}
