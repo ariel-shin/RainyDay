@@ -1,19 +1,20 @@
 runtime: python
 api_version: 1
 threadsafe: true
+entrypoint: gunicorn -b :$PORT main:app
 
 handlers:
 - url: /stylesheets
   static_dir: stylesheets
 
 - url: /
-  script: main.app
+  script: main.py
 
 - url: /images
   static_dir: images
 
 - url: /upload
-  script: main.app
+  script: main.py
 
 env: flex
 
