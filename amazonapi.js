@@ -5,8 +5,8 @@
   ################	
   # Dependencies #          
   ################
-   npm install jsdom <- xml element printing by ID
-   npm install apac  <- nodejs wrapper of Amazon Product Advertising API 
+   npm install jsdom <- xml element printing by ID: https://github.com/tmpvar/jsdom
+   npm install apac  <- nodejs wrapper of Amazon Product Advertising API: https://github.com/dmcquay/node-apac
 */
 
 const jsdom = require("jsdom"), {OperationHelper} = require('apac'), { JSDOM } = jsdom;
@@ -64,6 +64,8 @@ opHelper.execute('ItemSearch', {
 }).then((response) => {
 
     //console.log("Raw response body: ", response.responseBody) <--- Use to view total structure 
+
+    // handle something 
 
 	var xml = response.responseBody;
 
