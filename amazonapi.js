@@ -20,7 +20,7 @@ const opHelper = new OperationHelper({
     assocId:   'rainyday0d-20' 
 });
 
-opHelper.execute('ItemLookup', {
+/*opHelper.execute('ItemLookup', {
   //'SearchIndex': 'Books',
   //'Keywords': 'Andis 17150 Profoil Lithium',
   'ItemId': 'B000LNB8HK',
@@ -40,5 +40,26 @@ opHelper.execute('ItemLookup', {
 ).catch((err) => {
     console.error("Something went wrong! ", err);
 	});
+*/
+opHelper.execute('ItemSearch', {
+  //'SearchIndex': 'Books',
+   'Keywords': 'cup',
+   'ItemPage': 3,
+  'ResponseGroup': 'ItemAttributes'
+}).then((response) => {
+    //console.log("Results object: ", response.result);
 
+    //console.log("Raw response body: ", response.responseBody) <--- Use to view total structure 
 
+	var xml = response.responseBody;
+
+	const dom = new JSDOM(xml);
+
+	console.log(xml)
+	
+	//console.log(dom.window.document.querySelector("FormattedPrice").textContent);
+	}
+
+).catch((err) => {
+    console.error("Something went wrong! ", err);
+	});
