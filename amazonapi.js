@@ -63,9 +63,7 @@ opHelper.execute('ItemSearch', {
   'ResponseGroup': 'OfferSummary'
 }).then((response) => {
 
-    //console.log("Raw response body: ", response.responseBody) <--- Use to view total structure 
-
-    // handle something 
+    //console.log("Raw response body: ", response.responseBody) <--- Use to view total structure  
 
 	var xml = response.responseBody;
 
