@@ -1,0 +1,32 @@
+<html>
+  <body>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      Upload File: <input type="file" name="uploadedImage"><br>
+      <input type="submit" name="submit" value="Submit">
+    </form>
+    {% for image_entity in image_entities %}
+      <img src="{{image_entity['image_public_url']}}" width=200 height=200>
+      <p>Top Label Detected using Vision API: {{image_entity['label']}}</p>
+    {% endfor %}
+
+    {% if public_url %}
+      <img src="{{public_url}}" width=200 height=200>
+      <h2>Label Detection:</h2>
+      {% for label in labels %}
+        <p><b>Label:</b> {{label.description}} <b>Score:</b> {{label.score}}</p>
+      {% endfor %}
+      <br>
+
+      <h2>Logo Detection:</h2>
+      {% for logo in logos %}
+      <p><b>{{logo}}:</b> {{logo.description}} <b>Score:</b> {{logo.score}}</p> 
+      {% endfor %}
+      <br>
+
+      <h2>Text Detection:</h2>
+      {% for t in text %}
+        <p><b>Text:</b> {{t.description}} <b>Score:</b> {{t.score}}</p>
+      {% endfor %}
+    {% endif %}
+  </body>
+</html> 
