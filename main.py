@@ -1,7 +1,7 @@
 import base64
 import os
 import sys
-
+from crop import batch_crop 
 from flask import Flask, redirect, render_template, request
 from google.cloud import datastore
 from google.cloud import storage
@@ -19,9 +19,30 @@ def upload():
     storage_client = storage.Client()
     bucket = storage_client.get_bucket('rainybucket')
     photo = request.files['uploadedImage']
-    blob = bucket.blob(photo.filename)
+    image_tuple = []
+
+    if photo == 'demo_images/example0.txt':
+        image_tuple = batch_crop(photo, 'coordinates/coord0.txt')
+        for i in image_tuple:
+            find_output(i)
+
+    if photo == 'demo_images/example1.txt':
+        image_tuple = batch_crop(photo, 'coordinates/coord1.txt')
+        for i in image_tuple:
+            find_output(i)
+    if photo == 'demo_images/example2.txt':
+        image_tuple = batch_crop(photo, 'coordinates/coord2.txt')
+        for i in image_tuple:
+            find_output(i)
+    if photo == 'demo_images/example3.txt':
+        image_tuple = batch_crop(photo, 'coordinates/coord3.txt')
+        for i in image_tuple:
+            find_output(i)
+
+def find_output(image_dest):
+    blob = bucket.blob(image_dest.filename)
     blob.upload_from_string(
-        photo.read(), content_type=photo.content_type)
+        image_dest.read(), content_type=image_dest.content_type)
     blob.make_public()
     image_public_url = blob.public_url
 
