@@ -21,28 +21,33 @@ def upload():
     photo = request.files['uploadedImage']
     image_tuple = []
 
-    if photo == 'demo_images/example0.txt':
-        image_tuple = batch_crop(photo, 'coordinates/coord0.txt')
+    if photo.filename == 'example0.jpeg':
+        image_tuple = batch_crop('demo_images/example0.jpeg', 'coordinates/coord0.txt')
         for i in image_tuple:
             find_output(i)
-
-    if photo == 'demo_images/example1.txt':
-        image_tuple = batch_crop(photo, 'coordinates/coord1.txt')
+    elif photo.filename == 'example1.jpeg':
+        image_tuple = batch_crop('demo_images/example1.jpeg', 'coordinates/coord1.txt')
         for i in image_tuple:
             find_output(i)
-    if photo == 'demo_images/example2.txt':
-        image_tuple = batch_crop(photo, 'coordinates/coord2.txt')
+    elif photo.filename == 'example2.jpeg':
+        image_tuple = batch_crop('demo_images/example2.jpeg', 'coordinates/coord2.txt')
         for i in image_tuple:
             find_output(i)
-    if photo == 'demo_images/example3.txt':
-        image_tuple = batch_crop(photo, 'coordinates/coord3.txt')
+    elif photo.filename == 'example3.jpeg':
+        image_tuple = batch_crop('demo_images/example3.jpeg', 'coordinates/coord3.txt')
         for i in image_tuple:
             find_output(i)
+    else:
+        find_output(photo.filename)
 
 def find_output(image_dest):
-    blob = bucket.blob(image_dest.filename)
+    storage_client = storage.Client()
+    bucket = storage_client.get_bucket('rainybucket')
+    photo = request.files['uploadedImage']
+
+    blob = bucket.blob(image_dest)
     blob.upload_from_string(
-        image_dest.read(), content_type=image_dest.content_type)
+        photo.read(), content_type=photo.content_type)
     blob.make_public()
     image_public_url = blob.public_url
 
