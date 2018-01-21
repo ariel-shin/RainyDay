@@ -22,7 +22,7 @@
       <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> About</a>
       <a href="#upload" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i>Upload</a>
       <a href="#results" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> Results</a>
-    </a>
+      </a>
     </div>
 
     <!-- Navbar on small screens -->
@@ -58,27 +58,27 @@
     file that you can then upload to the cloud service of your choosing.</em></p>
     <p class="w3-center"><em>Natural disasters are always unprecedented, but we want to make sure that you can patch up your life the best you can,
     and even commend yourself about making sure you're prepared for a rainy day.</em></p>
-    <p class="w3-center"><em> <3 The RainyDay Team <3 </em></p>
+    <p class="w3-center"><em> ♥ The RainyDay Team ♥ </em></p>
   </div>
 
-  <!-- Second Parallax Image with Upload Text -->
+  <!-- Second Parallax Image with "Upload" Text -->
   <div class="bgimg-2 w3-display-container w3-opacity-min">
     <div class="w3-display-middle">
-      <span class="w3-xxlarge w3-text-white w3-wide">Upload</span>
+      <span class="w3-xxlarge w3-text-white w3-wide">upload</span>
     </div>
   </div>
 
   <!-- Container Upload Section) -->
-  <div class="w3-content w3-container w3-padding-64" id="Upload">
-    <h3 class="w3-center"></h3>
+  <div class="w3-content w3-container w3-padding-64" id="upload">
+    <h3 class="w3-center">Upload your files below.</h3>
     <form action="/upload" class="form w3-center" method="POST" enctype="multipart/form-data">
-      <input type="file" name="uploadedImage">
-      <button class="w3-center" type="submit" value="Submit">Submit</button>
-    </form>
+        <input type="file" name="uploadedImage">
+        <button class="w3-center" type="submit" value="Submit">Submit</button>
+      </form>
   </div>
 
   <!-- Modal for full size images on click-->
-  <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='w3-light-grey'">
     <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
     <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
       <img id="img01" class="w3-image">
@@ -89,28 +89,24 @@
   <!-- Third Parallax Image with Results Text -->
   <div class="bgimg-3 w3-display-container w3-opacity-min">
     <div class="w3-display-middle">
-      <span class="w3-xxlarge w3-text-white w3-wide">RESULTS</span>
+      <span class="w3-xxlarge w3-text-white w3-wide">results</span>
     </div>
   </div>
 
   <!-- Container (RESULTS Section) -->
   <div class="w3-content w3-container w3-padding-64" id="results">
-    <h3 class="w3-center">RESULTS</h3>
-    <p class="w3-center"><em>Results</em></p>
   </div>
 
   <!-- Footer -->
   <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-    <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+    <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Top</a>
     <div class="w3-xlarge w3-section">
-      <i class="fa fa-facebook-official w3-hover-opacity"></i>
-      <i class="fa fa-instagram w3-hover-opacity"></i>
-      <i class="fa fa-snapchat w3-hover-opacity"></i>
-      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-      <i class="fa fa-twitter w3-hover-opacity"></i>
-      <i class="fa fa-linkedin w3-hover-opacity"></i>
+      <a href="https://www.linkedin.com/in/amberpkumar/"><img src="images/amber.png" alt="front-end developer" style="width:42px;height:42px;border:0"></a>
+      <a href="https://www.linkedin.com/in/arielshin/"><img src="images/ariel.png" alt="back-end developer" style="width:42px;height:42px;border:0"></a>
+      <a href="https://www.linkedin.com/in/muhammedikharo/"><img src="images/muhammed.png" alt="back-end developer" style="width:42px;height:42px;border:0"></a>
+      <a href="https://www.linkedin.com/in/olsonsven/"><img src="images/sven.png" alt="full-stack developer" style="width:42px;height:42px;border:0"></a>
     </div>
-    <p>Powered by Team Rainy Day</p>
+    <p>With love, Team RainyDay ♥</p>
     <p>
   </footer>
 
@@ -127,6 +123,7 @@
     window.onscroll = function() {
       myFunction()
     };
+
     function myFunction() {
       var navbar = document.getElementById("myNavbar");
       if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
@@ -148,3 +145,7 @@
 </body>
 
 </html>
+
+
+<!---All images used are property of the developers or open source--->
+<!--- Some help was derived from https://github.com/ryanmats/gcp-hackathon-demos/blob/master/vision/main.py--->
