@@ -22,6 +22,8 @@ const opHelper = new OperationHelper({
 
 var itemsValue = 0 
 
+var logo = null
+
 var keyword = null
 
 var departments = {
@@ -31,6 +33,7 @@ var departments = {
 	Books:1000,
 	Electronics:493964,
 	HealthPersonalCare:3760931,
+	HomeGarden:1063498, // <--- kitchen itmes included: cups, etc. 
 	Movies:2625374011,
 	Music:301668,
 	OfficeProducts:1084128,
@@ -42,7 +45,7 @@ var departments = {
 };
 
 opHelper.execute('ItemLookup', {
-  'ItemId': 'B000LNB8HK', // MUST specify ItemId for results 
+  'ItemId': 'B000LNB8HK', // <--- MUST specify ItemId for results 
   'ResponseGroup': 'ItemAttributes'
 }).then((response) => {
 
