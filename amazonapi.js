@@ -20,13 +20,10 @@ const opHelper = new OperationHelper({
     assocId:   'rainyday0d-20' 
 });
 
-/*opHelper.execute('ItemLookup', {
-  //'SearchIndex': 'Books',
-  //'Keywords': 'Andis 17150 Profoil Lithium',
-  'ItemId': 'B000LNB8HK',
+opHelper.execute('ItemLookup', {
+  'ItemId': 'B000LNB8HK', // MUST specify ItemId for results 
   'ResponseGroup': 'ItemAttributes'
 }).then((response) => {
-    //console.log("Results object: ", response.result);
 
     //console.log("Raw response body: ", response.responseBody) <--- Use to view total structure 
 
@@ -34,30 +31,27 @@ const opHelper = new OperationHelper({
 
 	const dom = new JSDOM(xml);
 	
-	console.log(dom.window.document.querySelector("FormattedPrice").textContent);
+	console.log('Example of Andis 17150 Profoil Lithium: ', dom.window.document.querySelector("FormattedPrice").textContent);
 	}
 
 ).catch((err) => {
     console.error("Something went wrong! ", err);
 	});
-*/
+
 opHelper.execute('ItemSearch', {
-  //'SearchIndex': 'Books',
+  'SearchIndex': 'Appliances', // <--- MUST specify SearchIndex for results 
    'Keywords': 'cup',
-   'ItemPage': 3,
-  'ResponseGroup': 'ItemAttributes'
+   'ItemPage': 1,
+  'ResponseGroup': 'OfferSummary'
 }).then((response) => {
-    //console.log("Results object: ", response.result);
 
     //console.log("Raw response body: ", response.responseBody) <--- Use to view total structure 
 
 	var xml = response.responseBody;
 
 	const dom = new JSDOM(xml);
-
-	console.log(xml)
 	
-	//console.log(dom.window.document.querySelector("FormattedPrice").textContent);
+	console.log('Example of first cup element: ', dom.window.document.querySelector("FormattedPrice").textContent);
 	}
 
 ).catch((err) => {
