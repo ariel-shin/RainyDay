@@ -1,6 +1,7 @@
 import base64
 import os
 import sys
+import batch_crop from crop.py
 
 from flask import Flask, redirect, render_template, request
 from google.cloud import datastore
@@ -16,9 +17,11 @@ def homepage():
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
+
     storage_client = storage.Client()
     bucket = storage_client.get_bucket('rainybucket')
     photo = request.files['uploadedImage']
+
     blob = bucket.blob(photo.filename)
     blob.upload_from_string(
         photo.read(), content_type=photo.content_type)
