@@ -41,7 +41,8 @@ def upload():
         labels = response.label_annotations
         logos = response.logo_annotations
         text = response.text_annotations
-        return render_template('temp.html', labels=labels, logos=logos, text=text, public_url=image_public_url)
+        return render_template('index.html', labels=labels, logos=logos, text=text, public_url=image_public_url)
+
     
 
 if __name__ == '__main__':
