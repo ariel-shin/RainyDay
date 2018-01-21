@@ -3,11 +3,11 @@
 <title>Rainy Day</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="images/rainyday.png">
+<link rel="icon" href="static/rainyday.png">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="stylesheets/temp3.css">
+<link rel="stylesheet" type="text/css" href="static/temp3.css">
 
 
 <body>
@@ -36,7 +36,7 @@
   <!-- First Parallax Image with Logo Text -->
   <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
     <div class="w3-display-middle" style="white-space:nowrap;">
-      <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
+      <span class="w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
         <span class="w3-hide-small">Rainy Day</span>
       </span>
     </div>
@@ -45,21 +45,17 @@
   <!-- Container (About Section) -->
   <div class="w3-content w3-container w3-padding-64" id="about">
     <h3 class="w3-center">About Us</h3>
-    <p class="w3-center"><em>Unprepared?</em></p>
-    <p class="w3-center"><em>That's okay. We're here for you. Promise.</em></p>
-    <p class="w3-center"><em>Natural disasters are really scary- we just want you to be ready.</em></p>
-    <p class="w3-center"><em>The Western Wildfires in Southern California destroyed $18 billion in property, and 54 people died.</em></p>
-    <p class="w3-center"><em>Hurricane Irma decimated $50 billion and took the lives of 97 individuals.</em></p>
-    <p class="w3-center"><em>Hurricane Harvey ruined $125 billion worth of real estate, and resulted in 89 deaths.</em></p>
-    <p class="w3-center"><em>This is why home and life insurance is so significant; however, sometimes, even insurance, something created to
-    help those affected by tragedy, might try to take advantage of them. When it comes to claims that homeowners make in order to rebuild their lives,
-    insurance companies may try to get out of replacing the items that made your household a home, especially since it'll be on their dime. </em></p>
-    <p class="w3-center"><em>That's why we want you to upload pictures of your home, and our ~magical algorithm~ will email you a .csv
-    file that you can then upload to the cloud service of your choosing.</em></p>
-    <p class="w3-center"><em>Natural disasters are always unprecedented, but we want to make sure that you can patch up your life the best you can,
-    and even commend yourself about making sure you're prepared for a rainy day.</em></p>
-    <p class="w3-center"><em> ♥ The RainyDay Team ♥ </em></p>
-  </div>
+    <p>Are you prepared for potentially being displaced due to a natural disaster? If you're not, that's okay. We're here for you. Promise.</p>
+    <p>The Western Wildfires in Southern California destroyed $18 billion in property, and 54 people died.</p>
+    <p>Hurricane Irma decimated $50 billion and took the lives of 97 individuals.</p>
+    <p>Hurricane Harvey ruined $125 billion worth of real estate, and resulted in 89 deaths.</p>
+    <p>With the recent trend in the volatility of weather in tandem with the current political climate, it's fair game to start prepping for days that you'd hope to never consider to be in the near future.</p>
+    <p>We don't mean to frighten you with these stats; natural disasters are just really scary- we just want you to be ready.</p>
+    <p>This is why home and life insurance is so significant; however, sometimes, even insurance, something created to help those affected by tragedy, might try to take advantage of them. When it comes to claims that homeowners make in order to rebuild their lives, insurance companies may try to get out of replacing the items that made your household a home, especially since it'll be on their dime.</p>
+    <p>That's why we want you to upload pictures of your home, and our ~magical algorithm~ will email you a .csv file that you can then upload to the cloud service of your choosing.</p>
+    <p>Natural disasters are always unprecedented, but we want to make sure that you can patch up your life the best you can, and even commend yourself about making sure you're prepared for a rainy day.</p>
+    <h3 class="w3-center">♥ The RainyDay Team ♥</h3>
+</div>
 
   <!-- Second Parallax Image with "Upload" Text -->
   <div class="bgimg-2 w3-display-container w3-opacity-min">
@@ -95,16 +91,44 @@
 
   <!-- Container (RESULTS Section) -->
   <div class="w3-content w3-container w3-padding-64" id="results">
+      {% if image_entity is not none %}
+        {% for image_entity in image_entities %}
+          <img src="{{image_entity['image_public_url']}}" width=200 height=200>
+          <p>Most likely to be: {{image_entity['label']}}</p>
+        {% endfor %}
+
+        {% if public_url %}
+          <img src="{{public_url}}" width=200 height=200>
+          <h3>All potential labels:</h3>
+          <ul>
+          {% for label in labels %}
+            {% if label.score > 0.70 %}
+              <li>{{label.description}} : {{'%0.2f'| format(label.score|float)}}% likelihood</li>
+            {% endif %}
+          {% endfor %}
+          </ul>
+          <br>
+
+          <h3>Potential Logos:</h3>
+          <ul>
+          {% for logo in logos %}
+            {% if logo.score > 0.20 %}
+              <li>{{logo.description}} : {{'%0.2f'| format(logo.score|float)}}% likelihood</li> 
+            {% endif %}
+          {% endfor %}
+        </ul>
+        {% endif %}
+      {% endif %}
   </div>
 
   <!-- Footer -->
   <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
     <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Top</a>
     <div class="w3-xlarge w3-section">
-      <a href="https://www.linkedin.com/in/amberpkumar/"><img src="images/amber.png" alt="front-end developer" style="width:42px;height:42px;border:0"></a>
-      <a href="https://www.linkedin.com/in/arielshin/"><img src="images/ariel.png" alt="back-end developer" style="width:42px;height:42px;border:0"></a>
-      <a href="https://www.linkedin.com/in/muhammedikharo/"><img src="images/muhammed.png" alt="back-end developer" style="width:42px;height:42px;border:0"></a>
-      <a href="https://www.linkedin.com/in/olsonsven/"><img src="images/sven.png" alt="full-stack developer" style="width:42px;height:42px;border:0"></a>
+      <a href="https://www.linkedin.com/in/amberpkumar/"><img src="static/amber.png" alt="front-end developer" style="width:42px;height:42px;border:0"></a>
+      <a href="https://www.linkedin.com/in/arielshin/"><img src="static/ariel.png" alt="back-end developer" style="width:42px;height:42px;border:0"></a>
+      <a href="https://www.linkedin.com/in/muhammedikharo/"><img src="static/muhammed.png" alt="back-end developer" style="width:42px;height:42px;border:0"></a>
+      <a href="https://www.linkedin.com/in/olsonsven/"><img src="static/sven.png" alt="full-stack developer" style="width:42px;height:42px;border:0"></a>
     </div>
     <p>With love, Team RainyDay ♥</p>
     <p>

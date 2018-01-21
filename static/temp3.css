@@ -11,7 +11,7 @@ body, html {
 #about {
   text-align: left;
   padding-left: 100px;
-  text-style: justify;
+  flex: 100;
   text-justify: inter-word;
   padding-right: 100px;
   font-family: helvetica;
@@ -29,21 +29,21 @@ body, html {
 /* First image (Logo. Full height) */
 
 .bgimg-1 {
-  background-image: url('../images/hike.png');
+  background-image: url('../static/hike.png');
   min-height: 100%;
 }
 
 /* Second image (Portfolio) */
 
 .bgimg-2 {
-  background-image: url('../images/seattle.png');
+  background-image: url('../static/seattle.png');
   min-height: 400px;
 }
 
 /* Third image () */
 
 .bgimg-3 {
-  background-image: url('../images/tercero.png');
+  background-image: url('../static/tercero.png');
   min-height: 400px;
 }
 

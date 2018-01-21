@@ -107,7 +107,7 @@
       <h3>All potential labels:</h3>
       <ul>
       {% for label in labels %}
-        {% if label.score > 20 %}
+        {% if label.score > .70 %}
           <li>{{label.description}} : {{label.score}}% likelihood</li>
         {% endif %}
       {% endfor %}
@@ -117,21 +117,23 @@
       <h3>Potential Logos:</h3>
       <ul>
       {% for logo in logos %}
-        {% if logo.score > 20 %}
+        {% if logo.score > .20 %}
           <li>{{logo}} : {{logo.description}} : {{logo.score}}% likelihood</li> 
         {% endif %}
       {% endfor %}
       </ul>
       <br>
 
+      <!--
       <h3>Other visible text:</h3>
       <ul>
       {% for t in text %}
-        {% if t.score > 20 %}
+        {% if t.score > .20 %}
           <li>{{t.description}} : {{t.score}}% accuracy</li>
         {% endif %}
       {% endfor %}
       </ul>
+      -->
     {% endif %}
   </div>
 
