@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<title>Rainy Day</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="images/rainyday.png">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/temp3.css">
+
+
+<body>
+
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar" id="myNavbar">
+      <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+      <a href="#home" class="w3-bar-item w3-button">Home</a>
+      <a href="#about" class="w3-bar-item w3-button w3-hide-small">About</a>
+      <a href="#upload" class="w3-bar-item w3-button w3-hide-small">Upload</a>
+      <a href="#results" class="w3-bar-item w3-button w3-hide-small">Results</a>
+      </a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+      <a href="#login" class="w3-bar-item w3-button" onclick="toggleFunction()">About</a>
+      <a href="#upload" class="w3-bar-item w3-button" onclick="toggleFunction()">Upload</a>
+      <a href="#results" class="w3-bar-item w3-button" onclick="toggleFunction()">Results</a>
+    </div>
+  </div>
+
+  <!-- First Parallax Image with Logo Text -->
+  <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+    <div class="w3-display-middle" style="white-space:nowrap;">
+      <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
+        <span class>rainy day</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- Container (About Section) -->
+  <div class="w3-content w3-container w3-padding-64" id="about">
+    <h3 class="w3-center">About Us</h3>
+    <p class="w3-center"><em>Unprepared?</em></p>
+    <p class="w3-center"><em>That's okay. We're here for you. Promise.</em></p>
+    <p class="w3-center"><em>Natural disasters are really scary- we just want you to be ready.</em></p>
+    <p class="w3-center"><em>The Western Wildfires in Southern California destroyed $18 billion in property, and 54 people died.</em></p>
+    <p class="w3-center"><em>Hurricane Irma decimated $50 billion and took the lives of 97 individuals.</em></p>
+    <p class="w3-center"><em>Hurricane Harvey ruined $125 billion worth of real estate, and resulted in 89 deaths.</em></p>
+    <p class="w3-center"><em>This is why home and life insurance is so significant; however, sometimes, even insurance, something created to
+    help those affected by tragedy, might try to take advantage of them. When it comes to claims that homeowners make in order to rebuild their lives,
+    insurance companies may try to get out of replacing the items that made your household a home, especially since it'll be on their dime. </em></p>
+    <p class="w3-center"><em>That's why we want you to upload pictures of your home, and our ~magical algorithm~ will email you a .csv
+    file that you can then upload to the cloud service of your choosing.</em></p>
+    <p class="w3-center"><em>Natural disasters are always unprecedented, but we want to make sure that you can patch up your life the best you can,
+    and even commend yourself about making sure you're prepared for a rainy day.</em></p>
+    <p class="w3-center"><em> ♥ The RainyDay Team ♥ </em></p>
+  </div>
+
+  <!-- Second Parallax Image with "Upload" Text -->
+  <div class="bgimg-2 w3-display-container w3-opacity-min">
+    <div class="w3-display-middle">
+      <span class="w3-xxlarge w3-text-white w3-wide">upload</span>
+    </div>
+  </div>
+
+  <!-- Container Upload Section) -->
+  <div class="w3-content w3-container w3-padding-64" id="upload">
+    <h3 class="w3-center">Upload your files below.</h3>
+    <form action="/upload" class="form w3-center" method="POST" enctype="multipart/form-data">
+        <input type="file" name="uploadedImage">
+        <button class="w3-center" type="submit" value="Submit">Submit</button>
+      </form>
+  </div>
+
+
+  <!-- Third Parallax Image with Results Text -->
+  <div class="bgimg-3 w3-display-container w3-opacity-min">
+    <div class="w3-display-middle">
+      <span class="w3-xxlarge w3-text-white w3-wide">results</span>
+    </div>
+  </div>
+
+  <!-- Container (RESULTS Section) -->
+  <div class="w3-content w3-container w3-padding-64" id="results">
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+    <a href="#home" class="w3-button w3-light-grey"></i>Top</a>
+
+    <div class="w3-large w3-section">
+      <p>With love, Team RainyDay ♥</p>
+      <a href="https://www.linkedin.com/in/amberpkumar/"><img src="images/amber.png" alt="front-end developer" style="width:42px;height:42px;border:0"></a>
+      <a href="https://www.linkedin.com/in/arielshin/"><img src="images/ariel.png" alt="back-end developer" style="width:42px;height:42px;border:0"></a>
+      <a href="https://www.linkedin.com/in/muhammedikharo/"><img src="images/muhammed.png" alt="back-end developer" style="width:42px;height:42px;border:0"></a>
+      <a href="https://www.linkedin.com/in/olsonsven/"><img src="images/sven.png" alt="full-stack developer" style="width:42px;height:42px;border:0"></a>
+    </div>
+  </footer>
+
+
+  <script>
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
+    // Change style of navbar on scroll
+    window.onscroll = function() {
+      myFunction()
+    };
+
+    function myFunction() {
+      var navbar = document.getElementById("myNavbar");
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+      } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+      }
+    }
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function toggleFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else {
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+  </script>
+</body>
+
+</html>
+
+
+<!---All images used are property of the developers or open source--->
+<!--- Some help was derived from https://github.com/ryanmats/gcp-hackathon-demos/blob/master/vision/main.py--->
