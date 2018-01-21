@@ -31,7 +31,7 @@ def batch_crop(image, coordinates):
             except:pass
         for item in result:
             import uuid
-            unique_filename = 'cropped/' + str(uuid.uuid4()) + '.jpg'
+            unique_filename = 'cropped_output/' + str(uuid.uuid4()) + '.jpg'
             crop(image, item, unique_filename)
 
 #takes in image names
